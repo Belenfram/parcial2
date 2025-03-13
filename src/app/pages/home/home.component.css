@@ -1,0 +1,35 @@
+/* home.component.scss */
+.home-container {
+    .hero-section {
+      position: relative;
+      height: 100vh; /* Altura completa de la pantalla */
+      overflow: hidden;
+  
+      .hero-image {
+        background-image: url('https://wallpapers.com/images/hd/glowing-red-angular-logo-7z0pp69vb06wl7aa.jpg'); /* Nueva URL de la imagen de Riot Games */
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-align: center;
+  
+        .hero-text {
+          background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para el texto */
+          padding: 20px;
+          border-radius: 10px;
+  
+          h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+          }
+  
+          p {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+ }

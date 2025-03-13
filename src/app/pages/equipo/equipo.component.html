@@ -1,0 +1,67 @@
+<div class="container mt-5">
+    <h1 class="text-center text-danger fw-bold">Valorant Tournament</h1>
+    <h3 class="text-center text-primary">Registro de Equipos</h3>
+
+    @if (equipos.length > 0) {
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Región</th>
+                        <th>No. Jugadores</th>
+                        <th>Manager</th>
+                        <th>Seleccionar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (equipo of equipos; track equipo.id) {
+                        <tr>
+                            <td>{{ equipo.id }}</td>
+                            <td>{{ equipo.nombre }}</td>
+                            <td>{{ equipo.region }}</td>
+                            <td>{{ equipo.nojugadores }}</td>
+                            <td>{{ equipo.manager }}</td>
+                            <td>
+                                <button type="button" class="btn btn-success btn-sm" (click)="selectEquipo(equipo)">Seleccionar</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    } @else {
+        <p class="text-center text-warning fw-bold">No hay equipos registrados</p>
+    }
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-4 p-4 border rounded shadow" style="text-align: center; background-color: #0f1923; border: 2px solid #ff4655; box-shadow: 0px 0px 15px rgba(255, 70, 85, 0.8); color: white;">
+            <div class="mb-3">
+                <label class="form-label fw-bold" style="color: #ff4655;">ID</label>
+                <input type="text" class="form-control" style="background-color: #1a2737; color: white; border: 2px solid #ff4655; text-align: center;" disabled="true" [(ngModel)]="equipo.id">
+            </div>
+            <div class="mb-3">
+                <label class="form-label fw-bold" style="color: #ff4655;">Nombre</label>
+                <input type="text" class="form-control" style="background-color: #1a2737; color: white; border: 2px solid #ff4655; text-align: center;" [(ngModel)]="equipo.nombre">
+            </div>
+            <div class="mb-3">
+                <label class="form-label fw-bold" style="color: #ff4655;">Región</label>
+                <input type="text" class="form-control" style="background-color: #1a2737; color: white; border: 2px solid #ff4655; text-align: center;" [(ngModel)]="equipo.region">
+            </div>
+            <div class="mb-3">
+                <label class="form-label fw-bold" style="color: #ff4655;">No. Jugadores</label>
+                <input type="text" class="form-control" style="background-color: #1a2737; color: white; border: 2px solid #ff4655; text-align: center;" [(ngModel)]="equipo.nojugadores">
+            </div>
+            <div class="mb-3">
+                <label class="form-label fw-bold" style="color: #ff4655;">Manager</label>
+                <input type="text" class="form-control" style="background-color: #1a2737; color: white; border: 2px solid #ff4655; text-align: center;" [(ngModel)]="equipo.manager">
+            </div>
+            <div class="d-grid gap-2">
+                <button type="button" class="btn btn-primary" style="background-color: #ff4655; border: none; color: white; font-weight: bold;" (click)="insertarEquipo()">Agregar</button>
+                <button type="button" class="btn btn-warning text-dark" style="background-color: #00e0ff; color: black; font-weight: bold;" (click)="updateEquipo()">Modificar</button>
+                <button type="button" class="btn btn-danger" style="background-color: #ff4655; border: none; color: white; font-weight: bold;" (click)="deleteEquipo()">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>

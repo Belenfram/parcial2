@@ -1,0 +1,55 @@
+<div class="container mt-5 text-center">
+  <h1 class="text-uppercase fw-bold mb-4 text-primary">Catálogo de Productos</h1>
+  
+  <h4 class="mb-3 text-secondary">Registro de Productos</h4>
+  
+  <div class="col-md-6 mx-auto p-4 rounded shadow" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef);">
+      <div class="mb-3 text-start">
+          <label class="form-label fw-semibold">CLAVE:</label>
+          <input type="text" class="form-control" disabled [(ngModel)]="producto.id"/>
+      </div>
+      <div class="mb-3 text-start">
+          <label class="form-label fw-semibold">DESCRIPCIÓN:</label>
+          <input type="text" class="form-control" [(ngModel)]="producto.descripcion"/>
+      </div>
+      <div class="mb-3 text-start">
+          <label class="form-label fw-semibold">PRECIO:</label>
+          <input type="text" class="form-control" [(ngModel)]="producto.precio"/>
+      </div>
+      
+      <div class="d-flex gap-3 justify-content-center">
+          <button type="button" class="btn btn-success" (click)="insertarProducto()">Insertar</button>
+          <button type="button" class="btn btn-info text-white" (click)="updateProducto()">Modificar</button>
+          <button type="button" class="btn btn-danger" (click)="deleteProducto()">Eliminar</button>
+      </div>
+  </div>
+
+  <hr class="my-5">
+
+  <h4 class="mb-3 text-secondary">Listado de Productos</h4>
+  
+  <div class="table-responsive">
+      <table class="table table-hover text-center align-middle shadow-sm rounded overflow-hidden">
+          <thead class="table-dark">
+              <tr>
+                  <th>CLAVE</th>
+                  <th>DESCRIPCIÓN</th>
+                  <th>PRECIO</th>
+                  <th>SELECCIONAR</th>
+              </tr>
+          </thead>
+          <tbody>
+              @for (producto of productos; track producto.id) {
+                  <tr class="table-light">
+                      <td>{{ producto.id }}</td>
+                      <td>{{ producto.descripcion }}</td>
+                      <td>{{ producto.precio }}</td>
+                      <td>
+                          <button type="button" class="btn btn-outline-primary btn-sm" (click)="selectProducto(producto)">Seleccionar</button>
+                      </td>
+                  </tr>
+              }
+          </tbody>
+      </table>
+  </div>
+</div>
